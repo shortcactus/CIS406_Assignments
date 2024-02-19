@@ -76,7 +76,7 @@ public class OrderEntryPhase3 {
 			//Get itemNetAmt
 			itemNetAmt = grossAmount - discountAmount; //apply discount; 
 	
-			input.close();
+		
 		
 	}
 	
