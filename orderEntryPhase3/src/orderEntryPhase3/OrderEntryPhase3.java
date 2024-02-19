@@ -17,13 +17,12 @@ public class OrderEntryPhase3 {
 	private Double discountAmount = 0.0;
 	private Double itemNetAmt = 0.0;
 	
-	//Additional variables
-	private char moreItems = 'y';
+
 	
 	private void getData()
 	{
-		Scanner input = new Scanner(System.in);
-		
+
+	Scanner input = new Scanner(System.in);	
 	//Keep reading new order lines
 
 		
@@ -77,9 +76,8 @@ public class OrderEntryPhase3 {
 			//Get itemNetAmt
 			itemNetAmt = grossAmount - discountAmount; //apply discount; 
 	
-	
-			
-			input.close();		
+			input.close();
+		
 	}
 	
 	public String toString()
@@ -105,23 +103,28 @@ public class OrderEntryPhase3 {
 	
 	
 	public static void main(String[] args) {
-		
+
 		//Display information
 		OrderEntryPhase3 myOrder = new OrderEntryPhase3();
+		Scanner input = new Scanner(System.in);
 		
-		while (moreItems != 'n' && moreItems != 'N')
+		char moreItems = 'y';
+		
+		do
 		{
+			//Get Data for order
+			myOrder.getData();
+			
+			//Display Details for order 
+			System.out.println(myOrder.toString());
+			
+			//Continue?
+			System.out.print("Are there more items to enter? (y/n): ");
+			moreItems = input.next().charAt(0);
+			input.nextLine();
+		} while (moreItems != 'n' && moreItems != 'N');
 		
-		//Get Data for order
-		myOrder.getData();
-		
-		//Display Details for order 
-		System.out.println(myOrder.toString());
-		
-		
-		
-		}
-
+		input.close();
 
 	}
 
